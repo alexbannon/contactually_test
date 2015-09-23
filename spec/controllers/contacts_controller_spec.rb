@@ -67,8 +67,9 @@ RSpec.describe ContactsController, type: :controller do
       it "updates the requested contact" do
         contact = Contact.create! valid_attributes
         put :update, {:id => contact.to_param, :contact => new_attributes, :format => :json}
+        updated_user = JSON.parse(response.body)
         contact.reload
-        expect(assigns(:contact)).to include(:first_name => "Edited")
+        expect(updated_user).to include("first_name" => "Edited")
       end
 
       it "assigns the requested contact as @contact" do

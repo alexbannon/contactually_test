@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+  skip_before_filter :verify_authenticity_token, :if => Proc.new { |c| c.request.format == 'application/json' }
 
   def homepage
     @contacts = Contact.all
@@ -9,6 +10,13 @@ class ContactsController < ApplicationController
     #CarrierWave or Paperclip probably preferred in future
     Contact.save(params[:upload])
     redirect_to root_url, notice: "Contacts Imported"
+  end
+
+  def index
+    @contacts = Contact.all
+    respond_to do |format|
+      format.json { render json: @contacts }
+    end
   end
 
   def create
@@ -24,6 +32,7 @@ class ContactsController < ApplicationController
   end
 
   def update
+    @contact = Contact.find(params[:id])
     respond_to do |format|
       if @contact.update(contact_params)
         format.json { render json: @contact }
@@ -35,6 +44,7 @@ class ContactsController < ApplicationController
 
 
   def destroy
+    @contact = Contact.find(params[:id])
     @contact.destroy
     respond_to do |format|
       format.json { head :no_content }
