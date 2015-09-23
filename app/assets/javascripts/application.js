@@ -29,4 +29,12 @@ $(document).ready(function(){
       $(self).parent().hide()
     })
   })
+
+  $(".unselected").click(function(){
+    $(this).attr("class", "selected");
+    $(".selected").click(function(){
+      $(this).attr("class", "unselected");
+    })
+  })
+
 })

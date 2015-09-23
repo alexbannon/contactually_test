@@ -33,6 +33,33 @@
   cursor: pointer;
 }
 
+.unselected {
+  cursor: pointer;
+  display: inline-block;
+  border: 1px solid rgb(170, 170, 170);
+  border-bottom: 2px solid rgb(170, 170, 170);
+  border-right: 2px solid rgb(170, 170, 170);
+  border-radius: 5px;
+  margin-top: 1px;
+}
+.unselected:hover{
+  border-bottom: 1px solid rgb(170, 170, 170);
+  border-right: 1px solid rgb(170, 170, 170);
+  border-top: 2px solid rgb(170, 170, 170);
+  border-left: 2px solid rgb(170, 170, 170);
+  margin-top: 0px;
+}
+
+.selected {
+  cursor: pointer;
+  display: inline-block;
+  border: 1px solid rgb(170, 170, 170);
+  border-radius: 5px;
+  border-top: 2px solid rgb(170, 170, 170);
+  border-left: 2px solid rgb(170, 170, 170);
+  margin-top: 0px;
+}
+
 body {
   background-color: #fff;
   color: #333;
