@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+.contact_row > * {
+  display: inline-block;
+}
+.contact_row {
+  margin: 20px;
+}

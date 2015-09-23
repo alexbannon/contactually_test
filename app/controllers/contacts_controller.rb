@@ -3,6 +3,7 @@ class ContactsController < ApplicationController
 
   def homepage
     @contacts = Contact.all
+    @one_contact = Contact.find(1)
   end
 
   def upload
