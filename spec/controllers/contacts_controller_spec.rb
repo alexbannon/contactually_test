@@ -48,6 +48,16 @@ RSpec.describe ContactsController, type: :controller do
 
     end
 
+    context "with invalid params" do
+
+      it "does not create a new Contact" do
+        expect {
+          post :create, {:contact => invalid_attributes, :format => :json}
+        }.to change(Contact, :count).by(0)
+      end
+
+    end
+
   end
 
   describe "PUT #update" do
@@ -79,6 +89,29 @@ RSpec.describe ContactsController, type: :controller do
       end
 
     end
+
+    context "with invalid params" do
+      let(:invalid_new_attributes) {
+        {
+          squibbidysquobbly: "potato",
+          edited: "Editson",
+          email_address: false,
+          phone_number: 5555555555,
+          company_name: 1
+        }
+      }
+
+      it "returns an error" do
+        contact = Contact.create! valid_attributes
+        put :update, {:id => contact.to_param, :contact => invalid_new_attributes, :format => :json}
+        expect(response).to eq(status: :unprocessable_entity)
+
+
+      end
+
+    end
+
+
 
   end
 
