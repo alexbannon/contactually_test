@@ -7,22 +7,20 @@
   <%= submit_tag "Upload" %>
 <% end %>
 
-<div class="contact_row">
-  <button class="edit">Edit</button>
-  <button class="delete">Delete</button>
-  <div class="contact_id" style="display:none"><%=@one_contact.id%></div>
-  <div class="first_name"><%=@one_contact.first_name%></div>
-  <div class="last_name"><%=@one_contact.last_name%></div>
-  <div class="email"><%=@one_contact.email_address%></div>
-  <div class="phone_number"><%=@one_contact.phone_number%></div>
-  <div class="company_name"><%=@one_contact.company_name%></div>
-</div>
 
 <h1>Your Contacts</h1>
 <% if @contacts.length == 0 %>
   <h1>No Contacts Yet! Upload Some!</h1>
 <% else %>
   <% @contacts.each do |contact| %>
-    <p><%=contact.first_name%></p>
+    <div class="contact_row">
+      <div class="delete"><i class="fa fa-trash-o"></i></div>
+      <div class="contact_id" style="display:none"><%=contact.id%></div>
+      <div class="first_name"><%=contact.first_name%></div>
+      <div class="last_name"><%=contact.last_name%></div>
+      <div class="email"><%=contact.email_address%></div>
+      <div class="phone_number"><%=contact.phone_number%></div>
+      <div class="company_name"><%=contact.company_name%></div>
+    </div>
   <% end %>
 <% end %>
