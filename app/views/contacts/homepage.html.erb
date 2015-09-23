@@ -3,6 +3,11 @@
 <h1>Import Contacts</h1>
 
 <%= form_tag upload_contacts_path, multipart: true do %>
-  <%= file_field 'upload', 'datafile'  %>
+  <%= file_field_tag :upload %>
   <%= submit_tag "Upload" %>
+<% end %>
+
+<h1>Uploaded Contacts</h1>
+<% @contacts.each do |contact| %>
+  <p><%=contact.first_name%></p>
 <% end %>
