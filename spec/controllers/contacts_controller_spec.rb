@@ -21,9 +21,10 @@ RSpec.describe ContactsController, type: :controller do
   }
 
   describe "GET #homepage" do
-    it "assigns a new contact as @contact" do
-      get :homepage
-      expect(assigns(:contacts)).to be_a_new(Contact)
+    it "assigns all contacts as @contacts" do
+      contact = Contact.create! valid_attributes
+      get :index, {}, valid_session
+      expect(assigns(:contacts)).to eq([contact])
     end
   end
 
@@ -74,5 +75,17 @@ RSpec.describe ContactsController, type: :controller do
       end
     end
   end
+
+  describe "DELETE #destroy" do
+
+    it "destroys the requested contact" do
+      contact = Contact.create! valid_attributes
+      expect {
+        delete :destroy, {:id => contact.to_param}
+      }.to change(Contact, :count).by(-1)
+    end
+
+  end
+
 
 end
