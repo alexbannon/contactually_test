@@ -14,22 +14,24 @@
 <div id="extension" class="unselected">#s w/ Extension</div>
 <div id="email_com" class="unselected">Emails w/ .com</div>
 <div>Sort By</div>
-<div id="sort_first_name" class="unselected">First Name</div>
-<div id="sort_last_name" class="unselected">Last Name</div>
-<div id="sort_email" class="unselected">Email</div>
+<div id="sort_first_name" class="clickable">First Name</div>
+<div id="sort_last_name" class="clickable">Last Name</div>
+<div id="sort_email" class="clickable">Email</div>
 
 <% if @contacts.length == 0 %>
   <h1>No Contacts Yet! Upload Some!</h1>
 <% else %>
-  <% @contacts.each do |contact| %>
-    <div class="contact_row">
-      <div class="delete"><i class="fa fa-trash-o"></i></div>
-      <div class="contact_id" style="display:none"><%=contact.id%></div>
-      <div class="first_name"><%=contact.first_name%></div>
-      <div class="last_name"><%=contact.last_name%></div>
-      <div class="email"><%=contact.email_address%></div>
-      <div class="phone_number"><%=contact.phone_number%></div>
-      <div class="company_name"><%=contact.company_name%></div>
-    </div>
-  <% end %>
+  <div id="contacts_list">
+    <% @contacts.each do |contact| %>
+      <div class="contact_row">
+        <div class="delete"><i class="fa fa-trash-o"></i></div>
+        <div class="contact_id" style="display:none"><%=contact.id%></div>
+        <div class="first_name"><%=contact.first_name%></div>
+        <div class="last_name"><%=contact.last_name%></div>
+        <div class="email"><%=contact.email_address%></div>
+        <div class="phone_number"><%=contact.phone_number%></div>
+        <div class="company_name"><%=contact.company_name%></div>
+      </div>
+    <% end %>
+  </div>
 <% end %>
