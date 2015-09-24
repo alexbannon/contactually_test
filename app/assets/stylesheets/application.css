@@ -61,7 +61,45 @@
   background-color: rgb(245, 245, 245)
 }
 
+#logo {
+  width: 10em;
+  height: 6em;
+  cursor: pointer;
+}
+#top_bar {
+  background: rgb(150, 150, 150);
+}
+#top_bar > *{
+  display: inline-block;
+}
+#import_toggle, #show_contacts_toggle {
+  font-size: 2em;
+  margin: 0 0.5em;
+  position: relative;
+  top: -32px;
+}
+#import_toggle:hover, #show_contacts_toggle:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.welcome {
+  padding-top: 80px;
+  text-align: center;
+  color: white;
+}
+
+#welcome_container {
+  margin-top: -20px;
+  height: 30em;
+  width: 100%;
+  background-image: url("https://www.contactually.com/wp-content/uploads/2015/03/150288-1400x800.jpg");
+  background-size: cover;
+}
+
 body {
+  margin: 0;
+  padding: 0;
   background-color: #fff;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;

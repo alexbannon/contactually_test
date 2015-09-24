@@ -16,6 +16,28 @@
 //= require_tree .
 
 $(document).ready(function(){
+  $("#import_container").css("display", "none");
+  $("#contacts_container").css("display", "none");
+
+  $("#import_toggle").click(function(){
+    $("#contacts_container").css("display", "none");
+    $("#welcome_container").css("display", "none");
+    $("#import_container").css("display", "block");
+  })
+
+  $("#logo").click(function(){
+    $("#contacts_container").css("display", "none");
+    $("#welcome_container").css("display", "block");
+    $("#import_container").css("display", "none");
+  })
+
+  $("#show_contacts_toggle").click(function(){
+    $("#contacts_container").css("display", "block");
+    $("#welcome_container").css("display", "none");
+    $("#import_container").css("display", "none");
+  })
+
+
   $(".delete").click(function(){
     var self = this;
     var contact_id = parseInt($(this).parent().children().eq(1).html())
