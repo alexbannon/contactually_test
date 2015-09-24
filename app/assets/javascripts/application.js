@@ -30,7 +30,9 @@ $(document).ready(function(){
     })
   })
 
-  //jquery and vanilla js sorting of DOM
+
+
+  //** Sorting DOM with jquery and vanilla js **
   $("#sort_first_name").click(function(){
     clearSortBySelections()
     $("#sort_first_name").attr("class", "selected");
@@ -74,50 +76,63 @@ $(document).ready(function(){
     contacts.detach().appendTo(contactsContainer)
   }
 
-  //filtering DOM by international #, ext, and .com
-  function showOrHideNumsWithoutExtension(){
+
+
+  //*** filtering DOM by international #, ext, and .com ***
+  function hideNumsWithoutExtension(){
     var contacts = document.getElementsByClassName("contact_row");
     var forEach = Array.prototype.forEach;
     forEach.call(contacts, function(contact){
       var phone = contact.querySelector(".phone_number").innerHTML
       if(phone.indexOf("x") == -1){
-        if(contact.style.display == "none"){
-          contact.style.display = "block"
-        }
-        else{
-          contact.style.display = "none"
-        }
+        contact.style.display = "none"
+      }
+      else {
+        contact.style.display = "block"
       }
     })
   }
 
-  function showOrHideNonComEmails(){
+  function hideNonComEmails(){
     var contacts = document.getElementsByClassName("contact_row");
     var forEach = Array.prototype.forEach;
     forEach.call(contacts, function(contact){
       var email = contact.querySelector(".email").innerHTML
       if(email.substr(email.length - 4) != ".com"){
-        if(contact.style.display == "none"){
-          contact.style.display = "block"
-        }
-        else{
-          contact.style.display = "none"
-        }
+        contact.style.display = "none"
+      }
+      else {
+        contact.style.display = "block"
       }
     })
   }
 
-  function showOrHideNonInternationalNums(){
+  //the following shows all numbers that begin with 0 or 1
+  function hideNonInternationalNums(){
     var contacts = document.getElementsByClassName("contact_row");
     var forEach = Array.prototype.forEach;
     forEach.call(contacts, function(contact){
       var phone = contact.querySelector(".phone_number").innerHTML
-      if(phone.indexOf("x") == -1){
+      if(phone.substr(0, 1) == "("){
+        var first_digit = phone.substr(1, 1);
+        var second_digit = phone.substr(2, 1);
+      }
+      else{
+        var first_digit = phone.substr(0, 1)
+        var second_digit = phone.substr(1, 1);
+      }
+      if(!((first_digit == 0 || first_digit == 1) && second_digit != "-")){
+        if(second_digit == "-"){
+          if(phone.substr(2,1) == "0" || phone.substr(2,1) == "1"){
+            contact.style.display = "block"
+            return
+          }
+        }
+        contact.style.display = "none"
       }
     })
 
   }
-
 
   function clearFilterSelections(){
     $("#extension").attr("class", "unselected");
@@ -125,22 +140,48 @@ $(document).ready(function(){
     $("#international").attr("class", "unselected");
   }
 
+  function showAllContacts(){
+    clearFilterSelections()
+    var contacts = document.getElementsByClassName("contact_row");
+    var forEach = Array.prototype.forEach;
+    forEach.call(contacts, function(contact){
+      contact.style.display = "block"
+    })
+  }
+
+  //call function on click of 'only show' buttons and clear previous css styling
 
   $("#extension").click(function(){
-    clearFilterSelections()
-    $("#extension").attr("class", "selected")
-    showOrHideNumsWithoutExtension()
+    if($("#extension").attr("class") == "selected"){
+      showAllContacts()
+    }
+    else{
+      clearFilterSelections()
+      $("#extension").attr("class", "selected")
+      hideNumsWithoutExtension()
+    }
   })
 
   $("#email_com").click(function(){
-    clearFilterSelections()
-    $("#email_com").attr("class", "selected")
-    showOrHideNonComEmails();
+    if($("#email_com").attr("class") == "selected"){
+      showAllContacts()
+    }
+    else{
+      clearFilterSelections()
+      $("#email_com").attr("class", "selected")
+      hideNonComEmails()
+    }
   })
 
   $("#international").click(function(){
-    clearFilterSelections()
-    $("#international").attr("class", "selected")
+    if($("#international").attr("class") == "selected"){
+      showAllContacts()
+    }
+    else{
+      clearFilterSelections()
+      $("#international").attr("class", "selected")
+      hideNonInternationalNums()
+    }
   })
 
 })
