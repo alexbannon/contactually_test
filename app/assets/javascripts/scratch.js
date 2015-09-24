@@ -1,3 +1,5 @@
+// This holds an attempt at edit that was getting really messy without a framework like backbone/angular
+
 // $(".edit").click(function(){
 //   //grab contact info and make editable
 //   var contact_id = parseInt($(this).parent().children().eq(2).html())

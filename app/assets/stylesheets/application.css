@@ -61,24 +61,38 @@
   background-color: rgb(245, 245, 245)
 }
 
-#logo {
+.logo {
   width: 10em;
   height: 6em;
   cursor: pointer;
+  color: white;
 }
-#top_bar {
-  background: rgb(150, 150, 150);
+#hamburger {
+  height: 4em;
+  float: right;
+  margin-top: 10px;
+  cursor: pointer;
+}
+#top_bar, #mobile_top_bar{
+  background: rgb(62, 74, 93);
+}
+#mobile_dropdown {
+  background: rgb(50, 62, 81);
+}
+#mobile_top_bar, #mobile_dropdown {
+  display: none;
 }
 #top_bar > *{
   display: inline-block;
 }
-#import_toggle, #show_contacts_toggle {
+.import_toggle, .show_contacts_toggle {
   font-size: 2em;
   margin: 0 0.5em;
   position: relative;
   top: -32px;
+  color: white;
 }
-#import_toggle:hover, #show_contacts_toggle:hover{
+.import_toggle:hover, .show_contacts_toggle:hover{
   text-decoration: underline;
   cursor: pointer;
 }
@@ -87,6 +101,10 @@
   padding-top: 80px;
   text-align: center;
   color: white;
+}
+.import, .form_upload {
+  text-align: center;
+  margin: 20px 0 20px 0;
 }
 
 #welcome_container {
@@ -97,6 +115,46 @@
   background-size: cover;
 }
 
+.free_trial {
+  cursor: pointer;
+  width: 20em;
+  height: 3em;
+  text-align: center;
+  font-size: 1.3em;
+  margin: 0 auto;
+  background: rgb(236, 117, 92);
+  border-radius: 5px;
+  color: white;
+  padding-top: 26px;
+}
+a {
+  text-decoration: none;
+}
+
+h6 {
+  text-align: center;
+  color: white;
+  margin-top: 0;
+}
+
+.your_contacts {
+  margin-left: 20px;
+}
+
+#only_show, #sort_by {
+  display: inline-block;
+}
+#only_show {
+  margin-left: 20px;
+}
+#sort_by {
+  margin-left: 100px;
+}
+
+.only_show_title, .sort_by_title {
+  text-align: center;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -105,31 +163,6 @@ body {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
-}
-
-p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-}
-
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
-}
-
-a {
-  color: #000;
-
-  &:visited {
-    color: #666;
-  }
-
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
 }
 
 div {
@@ -170,5 +203,29 @@ div {
   ul li {
     font-size: 12px;
     list-style: square;
+  }
+}
+
+@media screen and (max-width: 760px){
+  #mobile_top_bar{
+    display: block;
+  }
+  #top_bar {
+    display: none;
+  }
+  .import_toggle, .show_contacts_toggle {
+    width: 9em;
+    font-size: 2em;
+    position: relative;
+    top: 0;
+    color: white;
+    margin: 0 auto;
+    padding: 20px 0;
+    text-align: center;
+  }
+}
+@media screen and (min-width: 761px){
+  #mobile_dropdown{
+    display: none;
   }
 }
