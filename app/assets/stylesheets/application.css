@@ -62,7 +62,7 @@
 }
 
 .logo {
-  width: 10em;
+  width: 7.5em;
   height: 6em;
   cursor: pointer;
   color: white;
@@ -116,6 +116,13 @@
 }
 #welcome_container, #import_container, #contacts_container {
   display: none;
+}
+
+.search_bar {
+  margin: 30px 0 20px 20px;
+}
+#search_input {
+  width: 25em;
 }
 
 .free_trial {
@@ -233,4 +240,9 @@ div {
   .sort_by_title, .only_show_title {
     text-align: left;
   }
+
+  #search_input {
+    width: 98%;
+  }
+
 }
