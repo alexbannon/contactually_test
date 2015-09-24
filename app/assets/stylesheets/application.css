@@ -114,6 +114,9 @@
   background-image: url("https://www.contactually.com/wp-content/uploads/2015/03/150288-1400x800.jpg");
   background-size: cover;
 }
+#welcome_container, #import_container, #contacts_container {
+  display: none;
+}
 
 .free_trial {
   cursor: pointer;

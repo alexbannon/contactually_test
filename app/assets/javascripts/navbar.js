@@ -3,6 +3,7 @@ $(document).ready(function(){
   $("#contacts_container").css("display", "none");
 
   $(".import_toggle").click(function(){
+    history.pushState({}, "", "/import")
     $("#mobile_dropdown").css("display", "none")
     $("#contacts_container").css("display", "none");
     $("#welcome_container").css("display", "none");
@@ -10,6 +11,7 @@ $(document).ready(function(){
   })
 
   $(".logo").click(function(){
+    history.pushState({}, "", "/")
     $("#mobile_dropdown").css("display", "none")
     $("#contacts_container").css("display", "none");
     $("#welcome_container").css("display", "block");
@@ -17,6 +19,7 @@ $(document).ready(function(){
   })
 
   $(".show_contacts_toggle").click(function(){
+    history.pushState({}, "", "/contacts")
     $("#mobile_dropdown").css("display", "none")
     $("#contacts_container").css("display", "block");
     $("#welcome_container").css("display", "none");

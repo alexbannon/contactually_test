@@ -14,3 +14,24 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+  var addressArray = window.location.href.split("/")
+  var deepLink = addressArray[3];
+  console.log(deepLink)
+  if(deepLink == ""){
+    $("#contacts_container").css("display", "none");
+    $("#welcome_container").css("display", "block");
+    $("#import_container").css("display", "none");
+  }
+  else if(deepLink == "import"){
+    $("#contacts_container").css("display", "none");
+    $("#welcome_container").css("display", "none");
+    $("#import_container").css("display", "block");
+  }
+  else if(deepLink == "contacts"){
+    $("#contacts_container").css("display", "block");
+    $("#welcome_container").css("display", "none");
+    $("#import_container").css("display", "none");
+  }
+})

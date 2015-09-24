@@ -101,7 +101,7 @@ RSpec.describe ContactsController, type: :controller do
         }
       }
 
-      it "returns an error" do
+      it "does not update Contact" do
         contact = Contact.create! valid_attributes
         put :update, {:id => contact.to_param, :contact => invalid_new_attributes, :format => :json}
         expect(Contact.find(contact.id).email_address).to eq("alexbannon@gmail.com")
