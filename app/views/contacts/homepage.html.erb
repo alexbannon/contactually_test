@@ -9,14 +9,14 @@
 
 
 <h1>Your Contacts</h1>
-<div>Filters</div>
+<div>Only Show</div>
 <div id="international" class="unselected">International #s</div>
 <div id="extension" class="unselected">#s w/ Extension</div>
 <div id="email_com" class="unselected">Emails w/ .com</div>
 <div>Sort By</div>
-<div id="sort_first_name" class="clickable">First Name</div>
-<div id="sort_last_name" class="clickable">Last Name</div>
-<div id="sort_email" class="clickable">Email</div>
+<div id="sort_first_name" class="unselected">First Name</div>
+<div id="sort_last_name" class="unselected">Last Name</div>
+<div id="sort_email" class="unselected">Email</div>
 
 <% if @contacts.length == 0 %>
   <h1>No Contacts Yet! Upload Some!</h1>
