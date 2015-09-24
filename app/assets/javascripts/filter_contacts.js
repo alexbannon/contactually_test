@@ -56,6 +56,7 @@ $(document).ready(function(){
   }
 
   function clearFilterSelections(){
+    $("#search_input").val("")
     $("#extension").attr("class", "unselected");
     $("#email_com").attr("class", "unselected");
     $("#international").attr("class", "unselected");
