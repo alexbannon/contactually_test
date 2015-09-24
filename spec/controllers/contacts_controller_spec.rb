@@ -104,9 +104,7 @@ RSpec.describe ContactsController, type: :controller do
       it "returns an error" do
         contact = Contact.create! valid_attributes
         put :update, {:id => contact.to_param, :contact => invalid_new_attributes, :format => :json}
-        expect(response).to eq(status: :unprocessable_entity)
-
-
+        expect(Contact.find(contact.id).email_address).to eq("alexbannon@gmail.com")
       end
 
     end

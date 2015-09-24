@@ -223,9 +223,11 @@ div {
     padding: 20px 0;
     text-align: center;
   }
-}
-@media screen and (min-width: 761px){
-  #mobile_dropdown{
-    display: none;
+  #sort_by, #only_show {
+    display: block;
+    margin: 18px 0 0 20px;
+  }
+  .sort_by_title, .only_show_title {
+    text-align: left;
   }
 }
