@@ -4,6 +4,7 @@ class Contact < ActiveRecord::Base
   validates :email_address, presence: true, format: /@/
   validates :phone_number, presence: true
   validates :company_name, presence: true
+  
   def self.save(upload)
     CSV.foreach(upload.path, {headers:true, :header_converters => :symbol, :col_sep => "\t"}) do |row|
       contact = find_by(first_name: row[:first_name]) || new

@@ -9,7 +9,8 @@ class ContactsController < ApplicationController
     #Opted to use built in rails storing in file system
     #CarrierWave or Paperclip probably preferred in future
     Contact.save(params[:upload])
-    redirect_to "/contacts", notice: "Contacts Imported"
+    flash[:notice] = "Contacts Uploaded!"
+    redirect_to "/contacts"
   end
 
   def index

@@ -181,8 +181,11 @@ div {
   }
 }
 
-#notice {
-  color: green;
+.notice {
+  text-align: center;
+  color: rgb(230, 30, 30);
+  margin: 8px auto;
+  font-size: 1.5em;
 }
 
 .field_with_errors {
