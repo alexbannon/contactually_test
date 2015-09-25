@@ -1,3 +1,29 @@
+## Installation Instructions
+
+Application relies on Rails and PostgreSQL.
+
+To download and install Posgres: http://www.postgresql.org/download/
+
+To download and install Rails: http://guides.rubyonrails.org/getting_started.html
+
+Once both are installed, install bundler with the command
+
+` gem install bundler `
+
+Then install the app's dependencies with
+
+` bundle install `
+
+Open up postgresql server locally, then setup the db with:
+
+` rake db:create `
+
+` rake db:migrate `
+
+Finally, run the server:
+
+` rails s `
+
 ### Contactually Lite
 
 At its core, Contactually is an online database for your contacts. Your task
